@@ -80,6 +80,59 @@ filter: brightness(50%);
   list-style: none;
   color: #2d2119;
   padding-top: 0.5rem;
+  width: 100%;
+}
+
+.app ul li {
+  padding: 1rem;
+  background-color: #2d2119;
+  border-radius: 11px;
+  color: #FFF2CC;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.check {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  border-radius: 50rem;
+  background-color: #fff9e6;
+  -webkit-appearance: none;
+}
+
+.check:checked {
+  background-color: #FFD966;
+}
+
+.task {
+  font-size: 1.5rem;
+  padding: 7px 10px;
+  border-radius: 7px;
+  border: none;
+  background-color: #FFF2CC;
+  color: #2d2119;
+  font-weight: 600;
+  font-family: 'Heebo', sans-serif;
+  width: 100%;
+}
+
+.task:focus {
+  outline: none;
+}
+
+.img-trash {
+  float: right;
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.task--complete {
+  text-decoration: line-through;
+  background-color: #FFD966 ;
 }
 
 
