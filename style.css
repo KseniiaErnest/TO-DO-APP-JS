@@ -130,7 +130,7 @@ filter: brightness(50%);
   height: 2.5rem;
 }
 
-.task--complete {
+.task--completed {
   text-decoration: line-through;
   background-color: #FFD966 ;
 }

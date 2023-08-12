@@ -58,7 +58,7 @@ function loadTasks() {
 
     li.innerHTML = ` <input type="checkbox" onclick="taskComplete(this)" class="check" ${taskOne.completed ? 'checked' : ''}>
     <input type="text" value="${taskOne.task}" class="task ${taskOne.completed ? 'checked' : ''}" onfocus="getCurrentTask(this)" onblur="editTask(this)">
-    <img src="icons8-trash-50.png" class="img-trash" onclick="removeTask(this)"></img> `;
+    <img src="icons8-trash-50.png" class="img-trash" onclick="deleteTask(this)"></img> `;
 
     listTasks.appendChild(li);
   });
@@ -98,4 +98,42 @@ function editTask(event) {
 
   // Update local storage
   localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+// Mark the complete task
+function taskComplete(event) {
+  // Get the tasks from local storage and convert them to an array
+  let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
+
+  // Loop through the tasks array
+  tasks.forEach(task => {
+    // Compare the task description with the value of the next element sibling of the clicked checkbox
+    if (task.task === event.nextElementSibling.value) {
+      // Toggle the completed status of the task
+      task.completed = !task.completed;
+    }
+  });
+
+  // Update the tasks array in local storage
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+
+  // Toggle the "completed" class on the next element sibling (the input field) of the clicked checkbox
+  event.nextElementSibling.classList.toggle("task--completed");
+}
+
+// Delete task
+function deleteTask(event) {
+  let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
+
+  tasks.forEach(t => {
+    if (t.task === event.parentNode.children[1].value) {
+      tasks.splice(tasks.indexOf(t), 1);
+    }
+  });
+
+  // Update the tasks array in local storage
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+
+  // Remove the parent element of the clicked element (the task's <li> element)
+  event.parentElement.remove();
 }
