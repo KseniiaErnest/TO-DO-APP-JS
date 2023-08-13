@@ -19,7 +19,18 @@ function addTask(task, listTasks) {
 
   // Check if input empty
   if (task.value === '') {
-    alert('Please, add some task');
+    Swal.fire({
+      title: 'Please, add some task',
+      color: '#2d2119',
+      background: '#FFF2CC',
+      confirmButtonColor: '#2d2119' ,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
+    })
     return false;
   };
 
@@ -28,7 +39,18 @@ function addTask(task, listTasks) {
 
   tasks.forEach(oneTask => {
     if (oneTask === task.value) {
-      alert('Task already exist');
+      Swal.fire({
+        title: 'Task already exists',
+        color: '#2d2119',
+        background: '#FFF2CC',
+        confirmButtonColor: '#2d2119' ,
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+      })
       task.value = '';
       return;
     }
@@ -42,7 +64,7 @@ function addTask(task, listTasks) {
   const li = document.createElement('li');
   li.innerHTML = ` <input type="checkbox" onclick="taskComplete(this)" class="check">
   <input type="text" value="${task.value}" class="task" onfocus="getCurrentTask(this)" onblur="editTask(this)">
-  <img src="icons8-trash-50.png" class="img-trash" onclick="removeTask(this)"></img> `;
+  <img src="icons8-trash-50.png" class="img-trash" onclick="deleteTask(this)"></img> `;
   listTasks.appendChild(li);
   task.value = '';
 }
@@ -75,7 +97,18 @@ function editTask(event) {
 
   // checking if task left empty
   if (event.value === '') {
-    alert('Task is empty!');
+    Swal.fire({
+      title: 'Task is empty!',
+      color: '#2d2119',
+      background: '#FFF2CC',
+      confirmButtonColor: '#2d2119' ,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
+    })
     event.value = currentTask;
     return;
   };
@@ -83,7 +116,18 @@ function editTask(event) {
   // check if the task already exist (duplicate)
   tasks.forEach(t => {
     if (t.task === event.value) {
-      alert('Task already exist');
+      Swal.fire({
+        title: 'Task already exists',
+        color: '#2d2119',
+        background: '#FFF2CC',
+        confirmButtonColor: '#2d2119' ,
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+      })
       event.value = currentTask;
       return;
     }

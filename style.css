@@ -21,14 +21,14 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   height: 100vh;
 }
 
-.app {
+.container {
   width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.app h1 {
+.container h1 {
   font-size: 5rem;
   color: #2d2119;
   font-weight: 900;
@@ -37,7 +37,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
 }
 
-.app form {
+.container form {
   display: flex;
   width: 100%;
   background-color: #FFD966;
@@ -46,7 +46,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   border-radius: 9px;
 }
 
-.app form input {
+.container form input {
   font-size: 2rem;
   border: none;
   width: 100%;
@@ -58,7 +58,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   border-radius: 5px;
 }
 
-.app form button {
+.container form button {
   border: none;
   border-radius: 7px;
   background-color: #2d2119;
@@ -72,18 +72,18 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
 }
 
-.app form button:hover {
+.container form button:hover {
 filter: brightness(50%);
 }
 
-.app ul {
+.container ul {
   list-style: none;
   color: #2d2119;
   padding-top: 0.5rem;
   width: 100%;
 }
 
-.app ul li {
+.container ul li {
   padding: 1rem;
   background-color: #2d2119;
   border-radius: 11px;
@@ -139,7 +139,21 @@ filter: brightness(50%);
 
 
 @media all and (max-width: 48em ) {
-  .app {
+  .container {
     width: 90%;
+  }
+}
+
+@media all and (max-width: 34em) {
+  html {
+    font-size: 70%;
+  }
+
+  .container {
+    margin-top: 1.5rem;
+  }
+
+  .container form button {
+    width: 10%;
   }
 }
